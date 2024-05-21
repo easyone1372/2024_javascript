@@ -1,0 +1,29 @@
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.short {
+  display: none;
+}
+
+.blueBtn {
+  display: none;
+}
+
+.radiusRound {
+  border-radius: 10px;
+}
+
+.radius90 {
+  border-radius: 0;
+}
