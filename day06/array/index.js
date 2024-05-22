@@ -83,7 +83,7 @@ const newArray04 = fruits01.map((v) =>
 );
 console.log(newArray04);
 
-//filter
+//filter=================
 const num1 = [3, 7, 2, 91, 309, 23, 124];
 // const num1Arr = num1.filter((v) => {
 //   return v > 10;

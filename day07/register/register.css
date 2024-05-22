@@ -1,0 +1,42 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 450px;
+  height: 500px;
+}
+
+.gray {
+  color: gray;
+}
+
+.black {
+  color: black;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.des {
+  display: flex;
+  gap: 5px;
+}
+
+.see {
+  border-bottom: 1px solid black;
+  width: fit-content;
+}
+
+.next {
+  margin-top: 20px;
+  padding: 15px 45px 15px 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 20px;
+}
