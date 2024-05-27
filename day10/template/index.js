@@ -54,9 +54,6 @@ const isBookSale = (book) =>
 // `;
 //=> 구분을 주고 싶었는데 걍 총 9개 생성됨...음...
 
-//아니 다 해놓고 계속 마무리를 못하냐 장난하냐고 정신차리라고 그래갖고 취업하겠냐고
-//아!!!!!!!!!!!!!!!!!!!!! 정신 똑디 차리라고
-
 // box.insertAdjacentHTML('어디에','무엇을') : innerHTML와 같지만 위치도 조정할 수 있다.
 
 //afterbegin: 맨 처음 자식으로
@@ -106,4 +103,4 @@ const makeBook = (book) => `
 <span>${isBookSale(book)}</span>
 `;
 
-books.forEach((v) => box.insertAdjacentHTML("beforeeend", makeBook(v)));
+books.forEach((v) => box.insertAdjacentHTML("beforeend", makeBook(v)));

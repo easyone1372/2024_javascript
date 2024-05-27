@@ -1547,7 +1547,7 @@ const makeFullName = (fullname) => {
   info.classList.add("userInfo");
   info.insertAdjacentHTML(
     "beforeend",
-    `<span>${fullname.fullName}</span>
+    `<span class="fName">${fullname.fullName}</span>
         <span>${fullname.job}</span>
         <span>${fullname.language}</span>
         `
