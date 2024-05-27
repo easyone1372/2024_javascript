@@ -1533,16 +1533,17 @@ const data = [
 // const imageBox = document.querySelector(".imageBox");
 
 const makeImage = (userImage) => {
-  imageBox = document.createElement("div");
+  const imageBox = document.createElement("div");
   imageBox.classList.add("imageBox");
   imageBox.insertAdjacentHTML(
     "beforeend",
-    `<image>${userImage.avatarImage}</image>`
+    `<img src = "${userImage.avatarImage}" alt="avartar">`
   );
+  return imageBox;
 };
 
 const makeFullName = (fullname) => {
-  info = document.createElement("div");
+  const info = document.createElement("div");
   info.classList.add("userInfo");
   info.insertAdjacentHTML(
     "beforeend",
@@ -1551,6 +1552,16 @@ const makeFullName = (fullname) => {
         <span>${fullname.language}</span>
         `
   );
+  return info;
 };
 
-const makeInfo = (infoObj) => {};
+const makeInfo = (infoObj) => {
+  const userBox = document.createElement("div");
+  userBox.classList.add("userBox");
+
+  userBox.appendChild(makeImage(infoObj));
+  userBox.appendChild(makeFullName(infoObj));
+  document.querySelector(".userInfoBox").appendChild(userBox);
+};
+
+data.forEach((v) => makeInfo(v));
