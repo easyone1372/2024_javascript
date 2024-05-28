@@ -1,0 +1,31 @@
+.cardList {
+  width: 100vw;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #dbdbdb;
+}
+
+/* .cardImage {
+} */
+
+.cardImage > img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
