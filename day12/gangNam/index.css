@@ -1,0 +1,49 @@
+.infoList {
+  width: 100vw;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.infoBox {
+  display: flex;
+  gap: 10px;
+}
+
+.infoText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoImageBox {
+  width: 150px;
+  height: 150px;
+}
+.infoImageBox > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.userSelect {
+  font-size: 14px;
+  color: blue;
+}
+
+.hosInfo {
+  display: flex;
+}
+
+.grade {
+  display: flex;
+}
+.priceBox {
+  display: flex;
+}
+
+.star {
+  color: yellow;
+}
