@@ -11,18 +11,45 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="gangNam_aside.css" />
+    <link rel="stylesheet" href="gangNam_catalogue.css" />
     <link rel="stylesheet" href="index.css" />
     <script type="module" src="index.js" defer></script>
   </head>
   <body>
-    <section class="catalogue">
-      <div class="catalogueBox">
-        <div class="catalogueIcon"></div>
-        <div class="catalogueText"></div>
+    <div class="wrapper">
+      <div class="leftBox">
+        <div class="asideBox">
+          <img src="main_banner_2024_may.png" alt="" />
+        </div>
       </div>
-    </section>
-    <section class="infoList">
-      <div class="container"></div>
-    </section>
+
+      <main>
+        <header>
+          <div class="headerBox">
+            <div class="logo_left">
+              <i class="fa-solid fa-chevron-left"></i>
+              <div class="logoBox">
+                <img src="gangNamlogo.png" alt="" />
+              </div>
+            </div>
+
+            <div class="logo_right">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <div class="login">
+                <span>로그인/가입</span>
+              </d>
+            </div>
+          </div>
+        </header>
+        <nav class="catalogue">
+          <ul class="catalogueUL"></ul>
+        </nav>
+
+        <section class="infoList">
+          <div class="container"></div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

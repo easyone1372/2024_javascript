@@ -1,7 +1,38 @@
+//함수 호출
 import { data } from "./data.js";
 import { makeHosData } from "./hosData.js";
 
 const container = document.querySelector(".container");
+const catalogueUL = document.querySelector(".catalogueUL");
+
+//함수 선언 파트=============================================================
+
+//카탈로그 출력 함수
+
+const makeCatalogueList = data.data.map(({ name, normalIconUrl }) => ({
+  name,
+  normalIconUrl,
+}));
+
+const makeIcon = (normalIconUrl) => `
+<div class="catalogueIcon">
+  <img src="${normalIconUrl.normalIconUrl}" alt="" />
+</div>`;
+
+const makeCText = (name) => `<span class="catalogueText">${name.name}</span>`;
+
+const makeCatalogue = (v) =>
+  catalogueUL.insertAdjacentHTML(
+    "beforeend",
+    `
+    <li class="catalogueBox">
+      ${makeIcon(v)}
+      ${makeCText(v)}
+    </li>
+  `
+  );
+
+//리스트 출력 함수
 
 const makeInfoImageBox = (titleImage) =>
   `<div class="infoImageBox">
@@ -14,13 +45,16 @@ const makeHospitalName = (hospitalName) =>
 
 const makeTitle = (title) => `<span class="title">${title.title}</span>`;
 
-const makeStar = (rating) => `<span class="star">${rating.rating}</span>`;
+const makeStar = (rating) => `<span class="starRating">${rating.rating}</span>`;
 const makeRatingcount = (ratingCount) =>
-  `<span class="starRate">${ratingCount.ratingCount}</span>`;
-const makePrice = (discountedCost) =>
-  `<span class="price">${discountedCost.discountedCost}</span>`;
+  `<span class="starRate">(${ratingCount.ratingCount})</span>`;
+const makePrice = (discountedCost) => {
+  const slicePrice = discountedCost.discountedCost / 10000;
+  return `<span class="price">${slicePrice}만원</span>`;
+};
+
 const makeVAT = (showVatBadge) => {
-  const isVatTrue = showVatBadge === true;
+  const isVatTrue = showVatBadge.showVatBadge === true;
   return isVatTrue ? `<span class="includeVAT"> vat포함 </span>` : null;
 };
 
@@ -48,67 +82,7 @@ const makeList = makeHosData[0].pageProps.data.events.data.map(
   })
 );
 
-// hosData.forEach(
-//   ({
-//     titleImage,
-//     hospitalsiGungu,
-//     hospitalName,
-//     title,
-//     rating,
-//     ratingCount,
-//     discountedCost,
-//     showVatBadge,
-//   }) =>
-//     container.insertAdjacentHTML(
-//       "beforeend",
-//       ` <div class="infoBox">
-// ${makeInfoImageBox({ titleImage })}
-// <div class="infoText">
-//   <span class="userSelect"></span>
-//   <div class="hosInfo">
-//     ${makeDosiGungu({ hospitalsiGungu })}
-//     ${makeHospitalName({ hospitalName })}
-//   </div>
-//  ${makeTitle({ title })}
-//   <div class="grade">
-//     <span class="star"><i class="fa-solid fa-star"></i></span>
-//     ${makeStar({ rating })}
-//     ${makeRatingcount({ ratingCount })}
-//   </div>
-//   <div class="priceBox">
-//     ${makePrice({ discountedCost })}
-//     ${makeVAT({ showVatBadge })}
-//   </div>
-// </div>
-// </div>`
-//     )
-// );
-
-// const makeContainer = (v) =>
-//   container.insertAdjacentHTML(
-//     "beforeend",
-//     ` <div class="infoBox">
-//     ${makeInfoImageBox(v.titleImage)}
-//     <div class="infoText">
-//       <span class="userSelect"></span>
-//       <div class="hosInfo">
-//         ${makeDosiGungu(v.hospitalSiGunGu)}
-//         ${makeHospitalName(v.hospitalName)}
-//       </div>
-//      ${makeTitle(v.title)}
-//       <div class="grade">
-//         <span class="star"><i class="fa-solid fa-star"></i></span>
-//         ${makeStar(v.rating)}
-//         ${makeRatingcount(v.ratingCount)}
-//       </div>
-//       <div class="priceBox">
-//         ${makePrice(v.discountedCost)}
-//         ${makeVAT(v.showVatBadge)}
-//       </div>
-//     </div>
-//     </div>`
-//   );
-
+//mainContainer hospitalList 출력 함수 생성
 const makeContainer = (v) =>
   container.insertAdjacentHTML(
     "beforeend",
@@ -117,7 +91,7 @@ const makeContainer = (v) =>
       <div class="infoText">
         <span class="userSelect"></span>
         <div class="hosInfo">
-          ${makeDosiGungu(v)}
+          ${makeDosiGungu(v)} ㆍ
           ${makeHospitalName(v)}
         </div>
        ${makeTitle(v)}
@@ -134,4 +108,6 @@ const makeContainer = (v) =>
       </div>`
   );
 
+//출력
+makeCatalogueList.forEach((v) => makeCatalogue(v));
 makeList.forEach((v) => makeContainer(v));

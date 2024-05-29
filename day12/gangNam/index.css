@@ -1,27 +1,25 @@
-.infoList {
-  width: 100vw;
-}
-
 .container {
+  max-width: 600px;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .infoBox {
   display: flex;
   gap: 10px;
+  border-bottom: 1px solid #bdbdbd;
+  padding: 15px;
 }
 
 .infoText {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 
 .infoImageBox {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 .infoImageBox > img {
   width: 100%;
@@ -35,15 +33,30 @@
 
 .hosInfo {
   display: flex;
+  font-size: 14px;
+  color: #696969;
 }
 
 .grade {
   display: flex;
+  gap: 5px;
+  font-size: 13px;
 }
 .priceBox {
   display: flex;
+  gap: 10px;
+}
+
+.price {
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .star {
-  color: yellow;
+  color: rgb(245, 215, 47);
+}
+
+.starRate {
+  color: #bdbdbd;
 }
