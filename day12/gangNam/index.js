@@ -25,6 +25,7 @@ const makeVAT = (showVatBadge) => {
 };
 
 //undefined 발생, 왜???
+//=> 데이터를 타고타고 들어가서 찾아야함. 가장 상위에서 .map한다고 해결되지 않음.
 const makeList = makeHosData[0].pageProps.data.events.data.map(
   ({
     titleImage,
@@ -132,26 +133,5 @@ const makeContainer = (v) =>
       </div>
       </div>`
   );
-
-// const makeList = hosData.map(({
-//     titleImage,
-//     hospitalSiGunGu,
-//     hospitalName,
-//     title,
-//     rating,
-//     ratingCount,
-//     discountedCost,
-//     showVatBadge,
-//   }) => ({
-//     titleImage,
-//     hospitalSiGunGu,
-//     hospitalName,
-//     title,
-//     rating,
-//     ratingCount,
-//     discountedCost,
-//     showVatBadge,
-//   })
-// );
 
 makeList.forEach((v) => makeContainer(v));
