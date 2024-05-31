@@ -18,6 +18,8 @@ const makeAdImageBox = (gymPhotoBig) => `<div class="adImageBox">
 </div>
 `;
 
+//어? 날아갔다ㅋㅋ
+
 const makeAdList = (v) => {
   adListBox.insertAdjacentHTML(
     "beforeend",

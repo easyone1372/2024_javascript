@@ -111,3 +111,29 @@ const makeContainer = (v) =>
 //출력
 makeCatalogueList.forEach((v) => makeCatalogue(v));
 makeList.forEach((v) => makeContainer(v));
+
+//돋보기 클릭 시 화면 도출 생성 화면 파트
+//+돋보기 클릭 후 키워드 검색 => 엔터 혹은 아이콘 클릭 시 키워드 검색어 관련만 출력하기
+
+const filterKeyword = (v) => {
+  makeHosData.forEach((keyWord) => {
+    const isVisible =
+      keyWord.title.includes(v) ||
+      keyWord.hospitalName.includes(v) ||
+      keyWord.hospitalSiGunGu.includes(v);
+
+    return console.log(isVisible, v);
+  });
+};
+
+const searchInputBox = document.querySelector(".searchInput");
+searchInputBox.addEventListener("input", (e) => {
+  const inputValue = e.target.value;
+  const searchIcon = document.querySelector(".searchIcon");
+  searchInputBox.addEventListener("keyup", (e) => {
+    const keyCode = e.keyCode;
+    const isKeyEnter = keyCode == "13";
+    // return isKeyEnter ? console.log("e키 눌림") : undefined;
+    return isKeyEnter ? filterKeyword(inputValue) : undefined;
+  });
+});

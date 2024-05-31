@@ -13,7 +13,9 @@
     />
     <link rel="stylesheet" href="gangNam_aside.css" />
     <link rel="stylesheet" href="gangNam_catalogue.css" />
+    <link rel="stylesheet" href="gangNam_searchView.css">
     <link rel="stylesheet" href="index.css" />
+
     <script type="module" src="index.js" defer></script>
   </head>
   <body>
@@ -25,7 +27,8 @@
       </div>
 
       <main>
-        <header>
+        <div class="view">
+          <header>
           <div class="headerBox">
             <div class="logo_left">
               <i class="fa-solid fa-chevron-left"></i>
@@ -35,7 +38,14 @@
             </div>
 
             <div class="logo_right">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <div class="searchBox">
+                <input class = "searchInput" type="text">
+                <span class="searchIcon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                
+              </div>
+              
               <div class="login">
                 <span>로그인/가입</span>
               </d>
@@ -49,6 +59,8 @@
         <section class="infoList">
           <div class="container"></div>
         </section>
+        </div>
+        
       </main>
     </div>
   </body>
