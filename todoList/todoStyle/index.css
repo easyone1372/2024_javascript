@@ -70,6 +70,9 @@
 .listViewBox {
   display: flex;
   flex-direction: column;
+  list-style: none;
+  list-style-type: none;
+  padding-left: 0px;
 }
 
 .listTextBox {
@@ -86,23 +89,25 @@
   display: flex;
   padding: 10px;
   align-items: center;
-  bottom: 120px;
-  gap: 45px;
+  bottom: 100px;
+  gap: 40px;
 }
 
 .floatingBtn {
   border: 1px solid var(--color--Deeppink);
   padding: 13px 15px;
   border-radius: 15px;
-  position: fixed;
   display: flex;
   align-items: center;
-  bottom: 130px;
-  right: 800px;
+  float: right;
+}
+
+input {
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .inputText {
-  margin-top: 20px;
   width: 220px;
   height: 15px;
 }
@@ -117,4 +122,19 @@
 
 .floatingBtn :hover {
   cursor: pointer;
+}
+
+.listCheck {
+  float: right;
+}
+
+.listCheck :hover {
+  cursor: pointer;
+}
+
+.unChecked {
+  color: var(--color--Deeppink);
+}
+.checked {
+  color: var(--color--lightpink);
 }
