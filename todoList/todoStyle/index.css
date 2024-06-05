@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Dovemayo_gothic";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .container {
   max-width: 600px;
   width: 100%;
@@ -5,8 +13,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   background-color: black;
   color: var(--color--Deeppink);
+  font-family: "Dovemayo_gothic";
 }
 
 .emptyBox {
@@ -14,22 +24,49 @@
   height: 50px;
 }
 .dateScrollBox {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
   border-bottom: 1px solid var(--color--Deeppink);
   overflow-x: scroll;
+  padding: 10px;
 }
 
-.dateYoilbox {
+.dateBox {
+  gap: 5px;
+  width: 40px;
+  padding: 0 10px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateBox :hover {
+  cursor: pointer;
+}
+
+.dateYoilBox {
   gap: 10px;
   font-size: 12px;
   color: var(--color--lightpink);
 }
 
 .dateNumBox {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+  text-align: center;
+  padding: 5px 5px;
   color: var(--color--Deeppink);
+  border: 1px solid var(--color--Deeppink);
+}
+
+.today {
+  background-color: var(--color--Deeppink);
+  color: black;
 }
 
 .listContainer {
@@ -47,7 +84,7 @@
   justify-content: space-between;
 }
 .selectButton {
-  width: 100px;
+  width: 90px;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -56,7 +93,7 @@
   border: 1px solid var(--color--Deeppink);
   border-radius: 15px;
   color: var(--color--lightpink);
-  padding: 5px 45px;
+  padding: 5px 40px;
 }
 
 .listBox {
@@ -64,17 +101,22 @@
   border-radius: 10px;
   color: var(--color--lightpink);
   height: 640px;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
 }
 
 .listViewBox {
+  height: 100%;
   display: flex;
   flex-direction: column;
   list-style: none;
   list-style-type: none;
   padding-left: 0px;
+  overflow-y: scroll;
 }
 
+.listViewBox::-webkit-scrollbar {
+  display: none;
+}
 .listTextBox {
   border-bottom: 1px solid var(--color--Deeppink);
   padding: 15px;
@@ -89,7 +131,7 @@
   display: flex;
   padding: 10px;
   align-items: center;
-  bottom: 100px;
+  bottom: 80px;
   gap: 40px;
 }
 
@@ -137,4 +179,10 @@ input {
 }
 .checked {
   color: var(--color--lightpink);
+  text-decoration: line-through;
+}
+
+.clickDate {
+  background-color: var(--color--lightpink);
+  color: black;
 }

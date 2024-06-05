@@ -1,5 +1,18 @@
+//해야하는거
+/*
+  할일리스트 개수 표시되게하기 - 완
+  달력 스크롤
+  체크 uncheck check 되게 하기 - 완. 
+*/
+
+//todoList 추가, 체크, 개수 세기 함수들
 const inputText = document.querySelector(".inputText");
 const floatingBtn = document.querySelector(".floatingBtn");
+const listAmount = document.querySelector(".listAmount");
+const completeAmount = document.querySelector(".completeAmount");
+
+const list = [];
+const checkList = [];
 
 //todo list 추가 함수
 export const enterEvent = (event) => {
@@ -7,12 +20,15 @@ export const enterEvent = (event) => {
   if (isEnterEvent) addList();
 };
 
+//플로팅 버튼 클릭해서 todolist 추가하기
 export const clickAddEvent = () => {
   floatingBtn.addEventListener("click", addList);
 };
 
+//엔터키를 눌렀다 떼면 enterEvent 발생
 inputText.addEventListener("keyup", enterEvent);
 
+//todolist 추가 함수
 const addList = () => {
   const text = inputText.value.trim();
   if (text === "") return;
@@ -22,8 +38,8 @@ const addList = () => {
   todoText.innerText = text;
 
   const listTextBox = document.createElement("li");
-  listTextBox.classList.remove("none");
-  listTextBox.classList.add("listTextBox", "block", "unChecked");
+  // listTextBox.classList.remove("none");
+  listTextBox.classList.add("listTextBox", "unChecked");
   listTextBox.appendChild(todoText);
   listTextBox.insertAdjacentHTML(
     "beforeend",
@@ -35,14 +51,38 @@ const addList = () => {
   const listViewBox = document.querySelector(".listViewBox");
   listViewBox.appendChild(listTextBox);
 
+  //리스트에 집어넣기
+  list.push(text);
+
+  //데이터 초기화
   inputText.value = "";
+
+  todoAllCount();
 };
+
+const todoAllCount = () => {
+  listAmount.innerText = list.length;
+};
+
+//check버튼 클릭시 해당 리스트 checked 전환
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("fa-circle-check")) {
+    const checkBtn = event.target;
+    const listItem = checkBtn.closest("li");
+
+    listItem.classList.toggle("unChecked");
+    listItem.classList.toggle("checked");
+
+    const isChecked = listItem.classList.contains("checked");
+    isChecked
+      ? checkList.push(listItem)
+      : checkList.splice(checkList.indexOf(listItem), 1);
+    completeCount();
+  }
+});
+
+const completeCount = () => {
+  completeAmount.innerText = checkList.length;
+};
+
 clickAddEvent();
-
-//해야하는거
-/*
-  할일리스트 개수 표시되게하기
-  달력 스크롤
-  체크 uncheck check 되게 하기 
-
-*/
