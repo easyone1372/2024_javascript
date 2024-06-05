@@ -1,9 +1,4 @@
-//해야하는거
-/*
-  할일리스트 개수 표시되게하기 - 완
-  달력 스크롤
-  체크 uncheck check 되게 하기 - 완. 
-*/
+//todoFunction.js
 
 //todoList 추가, 체크, 개수 세기 함수들
 const inputText = document.querySelector(".inputText");
@@ -11,8 +6,8 @@ const floatingBtn = document.querySelector(".floatingBtn");
 const listAmount = document.querySelector(".listAmount");
 const completeAmount = document.querySelector(".completeAmount");
 
-const list = [];
-const checkList = [];
+export const list = [];
+export const checkList = [];
 
 //todo list 추가 함수
 export const enterEvent = (event) => {
@@ -29,7 +24,7 @@ export const clickAddEvent = () => {
 inputText.addEventListener("keyup", enterEvent);
 
 //todolist 추가 함수
-const addList = () => {
+export const addList = () => {
   const text = inputText.value.trim();
   if (text === "") return;
 
@@ -60,8 +55,31 @@ const addList = () => {
   todoAllCount();
 };
 
-const todoAllCount = () => {
+export const todoAllCount = () => {
   listAmount.innerText = list.length;
+};
+
+//화면 재구성 함수
+export const renderList = (list, listViewBox) => {
+  listViewBox.innerHtml = "";
+
+  list.forEach((text) => {
+    const todoText = document.createElement("span");
+    todoText.classList.add("todoText");
+    todoText.innerText = text;
+
+    const listTextBox = document.createElement("li");
+    listTextBox.classList.add("listTextBox", "unChecked");
+    listTextBox.appendChild(todoText);
+    listTextBox.insertAdjacentHTML(
+      "beforeend",
+      `<span class="listCheck">
+    <i class="fa-regular fa-circle-check"></i>
+  </span>`
+    );
+
+    listViewBox.appendChild(listTextBox);
+  });
 };
 
 //check버튼 클릭시 해당 리스트 checked 전환
@@ -81,7 +99,24 @@ document.addEventListener("click", (event) => {
   }
 });
 
-const completeCount = () => {
+//리스트를 더블클릭하면 삭제됨
+document.addEventListener("dblclick", (event) => {
+  if (event.target.classList.contains("todoText")) {
+    const doubleBtn = event.target;
+    const listItem = doubleBtn.closest("li");
+
+    listItem.remove();
+    list.splice(list.indexOf(listItem), 1);
+
+    const isChecked = listItem.classList.contains("checked");
+    if (isChecked) checkList.splice(checkList.indexOf(listItem), 1);
+
+    todoAllCount();
+    completeCount();
+  }
+});
+
+export const completeCount = () => {
   completeAmount.innerText = checkList.length;
 };
 
